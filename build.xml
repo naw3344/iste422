@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<project name="Hello World - Ant" default="jar">
+	<target name="jar" depends="compile, clean">
+		<jar destfile="build/jar/HelloWorld.jar" basedir="build/classes">
+			<fileset dir="build/classes">
+				<include name="**/*.class" />
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="oata.HelloWorld" />
+			</manifest>
+		</jar>
+	</target>
+	<target name="compile" depends="clean">
+		<javac includeantruntime="false" destdir="build/classes">
+			<src path="src/oata" />
+		</javac>
+	</target>
+	<target name="clean">
+		<delete dir="build/classes/oata" />
+		<delete file="build/jar/HelloWorld.jar" />
+	</target>
+</project>
